@@ -7,31 +7,31 @@ public abstract class Plane implements Flyable {
     private double fuelConsumer;
     private double flyRange;
 
-    public Plane(String planeNumber, int passengerCapacity, double cargoCapacity, double fuelConsumer, double flyRange) {
-        this.planeNumber = planeNumber;
-        this.passengerCapacity = passengerCapacity;
-        this.cargoCapacity = cargoCapacity;
-        this.fuelConsumer = fuelConsumer;
-        this.flyRange = flyRange;
-    }
-
     public double getFuelConsumer() {
         return fuelConsumer;
     }
 
-    public void setFuelConsumer(double fuelConsumer) {
-        this.fuelConsumer = fuelConsumer;
+    public void setFuelConsumer (double fuelConsumer) throws IllegalArgumentException {
+        if(fuelConsumer<=0){
+            throw new IllegalArgumentException("fuel consumer must be greater than zero");
+        }else{
+            this.fuelConsumer = fuelConsumer;
+        }
     }
 
     public double getFlyRange() {
         return flyRange;
     }
 
-    public void setFlyRange(double flyRange) {
-        this.flyRange = flyRange;
+    public void setFlyRange(double flyRange) throws IllegalArgumentException{
+        if(flyRange <=0) {
+            throw new IllegalArgumentException("fly range (area) must be greater then zero");
+        }else{
+            this.flyRange = flyRange;
+        }
     }
 
-    public void setPlaneNumber(String planeNumber) {
+    public void setPlaneNumber(String planeNumber){
         this.planeNumber = planeNumber;
     }
 
@@ -39,12 +39,20 @@ public abstract class Plane implements Flyable {
         return planeNumber;
     }
 
-    public void setPassengerCapacity(int passengerCapacity) {
-        this.passengerCapacity = passengerCapacity;
+    public void setPassengerCapacity(int passengerCapacity) throws IllegalArgumentException{
+        if (passengerCapacity<0) {
+            throw new IllegalArgumentException("passenger Capacity must be positive or zero");
+        }else{
+            this.passengerCapacity = passengerCapacity;
+        }
     }
 
     public void setCargoCapacity(double cargoCapacity) {
-        this.cargoCapacity = cargoCapacity;
+        if (cargoCapacity<0) {
+            throw new IllegalArgumentException("cargo Capacity must be positive or zero");
+        }else{
+            this.cargoCapacity = cargoCapacity;
+        }
     }
 
     public int getPassengerCapacity() {

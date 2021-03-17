@@ -8,7 +8,15 @@ public class PassengerPlane extends Plane{
     private static Logger LOG = LoggerFactory.getLogger(PassengerPlane.class);
 
     public PassengerPlane(String planeNumber, int passengerCapacity, double cargoCapacity, double fuelConsumer, double flyRange) {
-        super(planeNumber, passengerCapacity, cargoCapacity, fuelConsumer, flyRange);
+        try{
+            setPlaneNumber(planeNumber);
+            setPassengerCapacity(passengerCapacity);
+            setCargoCapacity(cargoCapacity);
+            setFuelConsumer(fuelConsumer);
+            setFlyRange(flyRange);
+        }catch (IllegalArgumentException e){
+            LOG.error("Error during creating Passenger Plane - "+e.getMessage(),e);
+        }
         LOG.info("PassengerPlane created bortNumber="+planeNumber);
     }
 
