@@ -1,16 +1,15 @@
 package fleet;
 
-import plane.Flyable;
 import plane.Plane;
 
 import java.math.BigDecimal;
 import java.util.*;
 
-public class FleetOperations {
+class FleetOperations {
 
-    private List<Flyable> fleet;
+    private List<Plane> fleet;
 
-    public FleetOperations(List<Flyable> fleet) {
+    public FleetOperations(List<Plane> fleet) {
         if(fleet!=null) {
             this.fleet = fleet;
         }else{
@@ -20,31 +19,31 @@ public class FleetOperations {
 
     public int passengerCapacity(){
         int capacity=0;
-        for (Flyable plane : fleet) {
-            capacity=capacity+((Plane)plane).getPassengerCapacity();
+        for (Plane plane : fleet) {
+            capacity=capacity+plane.getPassengerCapacity();
         }
         return capacity;
     }
 
     public double cargoCapacity(){
         BigDecimal capacity = new BigDecimal(0.0);
-        for (Flyable plane : fleet) {
-            capacity = capacity.add(BigDecimal.valueOf(((Plane)plane).getCargoCapacity()));
+        for (Plane plane : fleet) {
+            capacity = capacity.add(BigDecimal.valueOf(plane.getCargoCapacity()));
         }
         return capacity.doubleValue();
     }
 
     public void sortByFlyRange(){
-        Collections.sort(fleet, new Comparator<Flyable>() {
+        Collections.sort(fleet, new Comparator<Plane>() {
             @Override
-            public int compare(Flyable o1, Flyable o2) {
-                return (int)(((Plane)o1).getFlyRange() - ((Plane)o2).getFlyRange());
+            public int compare(Plane o1, Plane o2) {
+                return (int)(o1.getFlyRange() - o2.getFlyRange());
             }
         });
     }
 
-    public List<Flyable> fuelConsumerFromTo(double from, double to){
-        List<Flyable> searchingPlanes = new ArrayList<>();
+    public List<Plane> fuelConsumerFromTo(double from, double to){
+        List<Plane> searchingPlanes = new ArrayList<>();
         if(from<=0 || to<=0){
             throw new IllegalArgumentException("Fuel consumer indicator(s) must be greater then zero");
         }
@@ -53,9 +52,9 @@ public class FleetOperations {
             to=from;
             from=tmps;
         }
-        for(Object plane: fleet){
-            if((((Plane)plane).getFuelConsumer()>=from) && (((Plane)plane).getFuelConsumer()<=to)){
-                searchingPlanes.add((Plane) plane);
+        for(Plane plane: fleet){
+            if((plane.getFuelConsumer()>=from) && (plane.getFuelConsumer()<=to)){
+                searchingPlanes.add(plane);
             }
         }
         if(searchingPlanes.size()==0) return null;

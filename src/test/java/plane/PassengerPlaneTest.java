@@ -10,7 +10,7 @@ public class PassengerPlaneTest {
     @DisplayName("Create PassengerPlane test")
     void PassengerPlaneCreateTest(){
         Plane plane = null;
-        plane = new PassengerPlane("PAS1234",114,61.127d,12.54d,1921.25d);
+        //plane = new PassengerPlane("PAS1234",114,61.127d,12.54d,1921.25d);
         assertNotNull(plane);
     }
 

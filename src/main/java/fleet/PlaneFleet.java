@@ -2,17 +2,17 @@ package fleet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import plane.Flyable;
 import plane.Plane;
+import plane.Planes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlaneFleet implements Fleet<Flyable>{
+public class PlaneFleet implements Fleet<Plane>{
 
     private static Logger LOG = LoggerFactory.getLogger(PlaneFleet.class);
 
-    private List<Flyable> fleet;
+    private List<Plane> fleet;
     private FleetOperations operations;
 
     public PlaneFleet() {
@@ -22,7 +22,7 @@ public class PlaneFleet implements Fleet<Flyable>{
 
     }
 
-    public void add(Flyable plane){
+    public void add(Plane plane){
         fleet.add(plane);
     }
 
@@ -35,7 +35,7 @@ public class PlaneFleet implements Fleet<Flyable>{
         }
     }
 
-    public void remove(Flyable plane) throws IllegalArgumentException{
+    public void remove(Plane plane) throws IllegalArgumentException{
         if(fleet.contains(plane)){
             fleet.remove(plane);
         }else{
@@ -60,7 +60,7 @@ public class PlaneFleet implements Fleet<Flyable>{
     }
 
     public String fuelConsumerFromTo(double  from, double to){
-        List<Flyable> searching = operations.fuelConsumerFromTo(from,to);
+        List<Plane> searching = operations.fuelConsumerFromTo(from,to);
         if (searching == null){
             LOG.info("There are no Plane consider to conditions");
             return "There are no Plane consider to conditions";
@@ -69,12 +69,12 @@ public class PlaneFleet implements Fleet<Flyable>{
         return getDescription(searching);
    }
 
-    public String getDescription(List<Flyable> fleet){
+    public String getDescription(List<Plane> fleet){
         StringBuilder description = new StringBuilder();
         if(fleet!=null) {
             description.append("Fleet size is "+fleet.size()+" planes. It consist from: \n");
-            for (Flyable plane : fleet) {
-                description.append(((Plane)plane).getDescription()+"\n");
+            for (Plane plane : fleet) {
+                description.append(Planes.getPlaneDescription(plane)+"\n");
             }
         }else{
             return "Fleet isn't created yet";
