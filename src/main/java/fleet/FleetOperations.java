@@ -29,9 +29,8 @@ public class FleetOperations {
     public double cargoCapacity(){
         BigDecimal capacity = new BigDecimal(0.0);
         for (Flyable plane : fleet) {
-            capacity.add(BigDecimal.valueOf(((Plane)plane).getCargoCapacity()));
+            capacity = capacity.add(BigDecimal.valueOf(((Plane)plane).getCargoCapacity()));
         }
-
         return capacity.doubleValue();
     }
 
