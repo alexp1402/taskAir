@@ -2,11 +2,25 @@ package plane;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.ArgumentsSource;
+
+import java.util.stream.Stream;
 
 public class CargoPlaneTest {
+    CargoPlane plane = new CargoPlane();
 
-    CargoPlane cPlane = new CargoPlane("CAR3355",2552.25d,25.2d,1500.25d);
+    private Stream<Arguments> constructDataBadArgument() {
+        return Stream.of(
+                Arguments.of("A", -5,5,6),
+                Arguments.of("B", 5,-5,6),
+                Arguments.of("C",  5,5,-6)
+        );
+    }
 
+    @ParameterizedTest
+   
     @Test
 
     @DisplayName("Illegal argument Passenger Capacity")
