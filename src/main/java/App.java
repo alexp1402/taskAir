@@ -1,4 +1,5 @@
 import aircompany.PlaneAirCompany;
+import fleet.Fleet;
 import fleet.PlaneFleet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,7 @@ public class App {
         Plane plane4 = new PassengerPlane("PAS5418",324,215.31d,21.78d,1825.25d);
         Plane plane5 = new PassengerPlane("PAS1234",114,61.127d,12.54d,1921.25d);
         //init fleet
-        PlaneFleet fleet = new PlaneFleet();
+        Fleet fleet = new PlaneFleet();
         fleet.add(plane1);
         fleet.add(plane2);
         fleet.add(plane3);
@@ -32,5 +33,6 @@ public class App {
 
         //Testing
         System.out.println(company.toString());
+        System.out.println("Fleet total cargo capacity ="+company.fleet);
     }
 }

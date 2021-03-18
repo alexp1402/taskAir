@@ -5,11 +5,14 @@ import fleet.Fleet;
 import fleet.PlaneFleet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import plane.Flyable;
+
+import java.util.List;
 
 public class PlaneAirCompany implements Company{
     private static final Logger LOG = LoggerFactory.getLogger(PlaneAirCompany.class);
 
-    private Fleet fleet;
+    public Fleet fleet;
     private String companyName;
 
     public PlaneAirCompany(String companyName, Fleet fleet) {

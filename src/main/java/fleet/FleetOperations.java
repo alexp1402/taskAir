@@ -8,28 +8,35 @@ import java.util.*;
 
 public class FleetOperations {
 
-    public int passengerCapacity(Fleet fleet){
-        Objects.requireNonNull(fleet,"Fleet is null First you must create and add some Flyable(Plane) to Fleet");
+    private List<Flyable> fleet;
+
+    public FleetOperations(List<Flyable> fleet) {
+        if(fleet!=null) {
+            this.fleet = fleet;
+        }else{
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public int passengerCapacity(){
         int capacity=0;
-        for (Object plane : fleet.getFleetAsList()) {
+        for (Flyable plane : fleet) {
             capacity=capacity+((Plane)plane).getPassengerCapacity();
         }
         return capacity;
     }
 
-    public double cargoCapacity(Fleet fleet){
-        Objects.requireNonNull(fleet,"Fleet is null First you must create and add some Flyable(Plane) to Fleet");
+    public double cargoCapacity(){
         BigDecimal capacity = new BigDecimal(0.0);
-        for (Object plane : fleet) {
+        for (Flyable plane : fleet) {
             capacity.add(BigDecimal.valueOf(((Plane)plane).getCargoCapacity()));
         }
 
         return capacity.doubleValue();
     }
 
-    public void sortByFlyRange(Fleet fleet){
-        Objects.requireNonNull(fleet,"Fleet is null First you must create and add some Flyable(Plane) to Fleet");
-        Collections.sort(fleet.getFleetAsList(), new Comparator<Flyable>() {
+    public void sortByFlyRange(){
+        Collections.sort(fleet, new Comparator<Flyable>() {
             @Override
             public int compare(Flyable o1, Flyable o2) {
                 return (int)(((Plane)o1).getFlyRange() - ((Plane)o2).getFlyRange());
@@ -37,8 +44,7 @@ public class FleetOperations {
         });
     }
 
-    public List<Flyable> fuelConsumerFromTo(Fleet fleet, double from, double to){
-        Objects.requireNonNull(fleet,"Fleet is null First you must create and add some Flyable(Plane) to Fleet");
+    public List<Flyable> fuelConsumerFromTo(double from, double to){
         List<Flyable> searchingPlanes = new ArrayList<>();
         if(from<=0 || to<=0){
             throw new IllegalArgumentException("Fuel consumer indicator(s) must be greater then zero");

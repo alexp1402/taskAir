@@ -14,10 +14,13 @@ public class PlaneFleet implements Fleet<Flyable>{
     private static Logger LOG = LoggerFactory.getLogger(PlaneFleet.class);
 
     private List<Flyable> fleet;
+    private FleetOperations operations;
 
     public PlaneFleet() {
         fleet = new ArrayList<>();
+        operations = new FleetOperations(fleet);
         LOG.info("PlaneFleet created");
+
     }
 
     public void add(Flyable plane){
@@ -42,6 +45,31 @@ public class PlaneFleet implements Fleet<Flyable>{
         }
     }
 
+    public double getCargoCapacity(){
+        return operations.cargoCapacity();
+    }
+
+    public int getPassengerCapacity(){
+        return operations.passengerCapacity();
+    }
+
+    public void sortByFlyRange(){
+        operations.sortByFlyRange();
+    }
+
+    public String fuelConsumerFromTo(double  from, double to){
+        List<Flyable> searchPlane = new ArrayList<>();
+        searchPlane = operations.fuelConsumerFromTo(from,to);
+        if(searchPlane==null){
+            return "No one plane corresponds to conditions Fuel Consumer from="+from+" to="+to;
+        }
+        StringBuilder output=new StringBuilder("Searching plane by condition when fuel consumer from="+from+" to="+to+" is\n");
+        for(Flyable plane:searchPlane){
+            output.append(((Plane)plane).getDescription());
+        }
+        return output.toString();
+   }
+
     public String getDescription(){
         StringBuilder description = new StringBuilder();
         if(fleet!=null) {
@@ -56,12 +84,7 @@ public class PlaneFleet implements Fleet<Flyable>{
     }
 
     @Override
-    public Iterator<Flyable> iterator() {
-        return fleet.iterator();
-    }
-
-    @Override
-    public List<Flyable> getFleetAsList() {
-        return fleet;
+    public String toString() {
+        return getDescription();
     }
 }
