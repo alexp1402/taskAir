@@ -1,7 +1,7 @@
+package plane;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import plane.PassengerPlane;
-import plane.Plane;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 

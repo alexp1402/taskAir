@@ -3,7 +3,7 @@ package plane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CargoPlane extends Plane{
+public class CargoPlane extends Plane {
     private static Logger LOG = LoggerFactory.getLogger(CargoPlane.class);
 
     public CargoPlane(String planeNumber, int passengerCapacity, double cargoCapacity, double fuelConsumer, double flyRange) {
@@ -17,12 +17,6 @@ public class CargoPlane extends Plane{
             LOG.error("Error during creating Cargo Plane - "+e.getMessage(),e);
         }
         LOG.info("CargoPlane created bortNumber="+planeNumber);
-    }
-
-    @Override
-    public void fly() {
-        //STUB
-        LOG.info("Plane bortNumber="+this.getPlaneNumber()+" fly");
     }
 
     @Override

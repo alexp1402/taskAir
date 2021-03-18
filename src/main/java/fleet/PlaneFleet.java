@@ -6,7 +6,6 @@ import plane.Flyable;
 import plane.Plane;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class PlaneFleet implements Fleet<Flyable>{
@@ -46,45 +45,45 @@ public class PlaneFleet implements Fleet<Flyable>{
     }
 
     public double getCargoCapacity(){
+        LOG.info("Calculating Total Cargo Capacity");
         return operations.cargoCapacity();
     }
 
     public int getPassengerCapacity(){
+        LOG.info("Calculating Total Passenger Capacity");
         return operations.passengerCapacity();
     }
 
     public void sortByFlyRange(){
         operations.sortByFlyRange();
+        LOG.info("Fleet sorting by Fly Range");
     }
 
     public String fuelConsumerFromTo(double  from, double to){
-        List<Flyable> searchPlane = new ArrayList<>();
-        searchPlane = operations.fuelConsumerFromTo(from,to);
-        if(searchPlane==null){
-            return "No one plane corresponds to conditions Fuel Consumer from="+from+" to="+to;
+        List<Flyable> searching = operations.fuelConsumerFromTo(from,to);
+        if (searching == null){
+            LOG.info("There are no Plane consider to conditions");
+            return "There are no Plane consider to conditions";
         }
-        StringBuilder output=new StringBuilder("Searching plane by condition when fuel consumer from="+from+" to="+to+" is\n");
-        for(Flyable plane:searchPlane){
-            output.append(((Plane)plane).getDescription());
-        }
-        return output.toString();
+        LOG.info("Searching ended. Some plane consider to conditions");
+        return getDescription(searching);
    }
 
-    public String getDescription(){
+    public String getDescription(List<Flyable> fleet){
         StringBuilder description = new StringBuilder();
         if(fleet!=null) {
-            description.append("Fleet size is "+fleet.size()+" plane.\nIt consist from: \n");
+            description.append("Fleet size is "+fleet.size()+" planes. It consist from: \n");
             for (Flyable plane : fleet) {
                 description.append(((Plane)plane).getDescription()+"\n");
             }
         }else{
-            return "Fleet has no one plane in. First add some plane";
+            return "Fleet isn't created yet";
         }
         return description.toString();
     }
 
     @Override
     public String toString() {
-        return getDescription();
+        return getDescription(fleet);
     }
 }

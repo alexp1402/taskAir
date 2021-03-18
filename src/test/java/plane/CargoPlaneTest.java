@@ -1,3 +1,5 @@
+package plane;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import plane.CargoPlane;

@@ -3,7 +3,7 @@ package plane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PassengerPlane extends Plane{
+public class PassengerPlane extends Plane {
 
     private static Logger LOG = LoggerFactory.getLogger(PassengerPlane.class);
 
@@ -21,16 +21,8 @@ public class PassengerPlane extends Plane{
     }
 
     @Override
-    public void fly() {
-        //STUB
-        LOG.info("Plane bortNumber="+this.getPlaneNumber()+" fly");
-    }
-
-    @Override
     public String getDescription() {
-        StringBuilder description= new StringBuilder("Passenger ");
-        description.append(super.getDescription());
-        return description.toString();
+        return Planes.getPlaneDescription(this);
     }
 
     @Override

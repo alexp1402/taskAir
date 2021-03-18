@@ -33,15 +33,15 @@ public class App {
 
         //Testing
         //System.out.println(company.toString());
-        System.out.println("Fleet total cargo capacity = "+((PlaneFleet)company.fleet).getCargoCapacity());
-        System.out.println("Fleet total passenger capacity = "+((PlaneFleet)company.fleet).getPassengerCapacity());
+        System.out.println("Fleet total cargo capacity = "+company.getTotalFleetCargoCapacity());
+        System.out.println("Fleet total passenger capacity = "+company.getTotalFleetPassengerCapacity());
         System.out.println("///////////////////////////////////////////////");
-        System.out.println("Searching Plane with fuel consumerationes (9.81d) :\n"+((PlaneFleet)company.fleet).fuelConsumerFromTo(9.81 ,9.81)+"\n");
+        System.out.println("Searching Plane with fuel consumerationes (9.81d) :\n"+company.searchingPlanesByFuelConsumeration(9.81d));
         System.out.println("///////////////////////////////////////////////");
-        System.out.println("Searching Plane with fuel consumerationes (9.00d - 22.00d) :\n"+((PlaneFleet)company.fleet).fuelConsumerFromTo(9 ,22)+"\n");
+        System.out.println("Searching Plane with fuel consumerationes (9.00d - 22.00d) :\n"+company.searchingPlanesByFuelConsumeration(9 ,22)+"\n");
         System.out.println("///////////////////////////////////////////////");
         System.out.println("Sorting BY Fly Range");
-        ((PlaneFleet)company.fleet).sortByFlyRange();
-        System.out.println(company.descriptCompany().toString());
+        company.sortingFleetByFlyRange();
+        System.out.println(company.descriptFleet().toString());
     }
 }
