@@ -1,6 +1,7 @@
 package plane;
 
 public class Planes {
+
     public static String getPlaneDescription(Plane plane){
         StringBuilder description= new StringBuilder();
         description.append(plane.getClass().getSimpleName()+" plane with bort number: "+plane.getPlaneNumber()+"\n").
@@ -10,6 +11,7 @@ public class Planes {
                     append("\t max fly range = "+plane.getFlyRange()+" kilometers\n");
         return description.toString();
     }
+
     public static String getSmallPlaneDescription(Plane plane){
         return " bn: "+plane.getPlaneNumber()
             +" pas=" +plane.getPassengerCapacity()
