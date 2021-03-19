@@ -18,6 +18,7 @@ public class PassengerPlaneTest {
         );
     }
 
+
     @ParameterizedTest
     @MethodSource("argumentsForNewPPlane")
     void createWrongPassengerPlaneObject(String name, int passC, double cargocC, double fuelC, double flyR) {

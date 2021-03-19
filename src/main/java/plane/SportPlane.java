@@ -4,16 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SportPlane implements Plane{
-    private static Logger LOG = LoggerFactory.getLogger(SportPlane.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SportPlane.class);
     private final String planeNumber;
-    private final int passengerCapacity;
-    private final double cargoCapacity;
+    private final int passengerCapacity=0;
+    private final double cargoCapacity=0;
     private final double fuelConsumer;
     private final double flyRange;
 
     public SportPlane(String planeNumber, double fuelConsumer, double flyRange) {
-        passengerCapacity=0;
-        cargoCapacity=0;
 
         if(PlaneVerification.verifyFuelConsumer(fuelConsumer)){
             this.fuelConsumer = fuelConsumer;

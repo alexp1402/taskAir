@@ -32,14 +32,16 @@ public class PlanesTest {
                 "\n\t fuel consumer = 1.0 liters per kilometers" +
                 "\n\t max fly range = 1.0 kilometers\n";
         Assertions.assertEquals(waitingFor,Planes.getPlaneDescription(plane));
-        verify(plane,times(5));
+        verify(plane,times(1)).getCargoCapacity();
+        verify(plane,times(1)).getPlaneNumber();
+        verify(plane,times(1)).getFuelConsumer();
+        verify(plane,times(1)).getFlyRange();
+        verify(plane,times(1)).getPassengerCapacity();
     }
 
     @Test
     void getSmallPlaneDescriptionGood(){
-        System.out.println(Planes.getSmallPlaneDescription(plane));
         String waitingFor = " bn: Passenger plane pas=1 cargo=1.0 fuelC=1.0 flyR=1.0";
         Assertions.assertEquals(waitingFor,Planes.getSmallPlaneDescription(plane));
-        verify(plane,times(5));
     }
 }

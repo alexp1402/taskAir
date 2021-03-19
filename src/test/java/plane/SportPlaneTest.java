@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class SportPlaneTest {
+
     public static Stream<Arguments> argumentsForNewSPlane() {
         return Stream.of(
                 Arguments.of("A", -1, 1.0),

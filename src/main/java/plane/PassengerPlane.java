@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class PassengerPlane implements Plane {
-    private static Logger LOG = LoggerFactory.getLogger(PassengerPlane.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PassengerPlane.class);
 
     private final String planeNumber;
     private final int passengerCapacity;

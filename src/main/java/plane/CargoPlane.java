@@ -4,15 +4,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CargoPlane implements Plane {
-    private static Logger LOG = LoggerFactory.getLogger(CargoPlane.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CargoPlane.class);
     private final String planeNumber;
-    private final int passengerCapacity;
+    private final int passengerCapacity=0;
     private final double cargoCapacity;
     private final double fuelConsumer;
     private final double flyRange;
 
     public CargoPlane(String planeNumber, double cargoCapacity, double fuelConsumer, double flyRange) {
-        passengerCapacity=0;
+
         if(PlaneVerification.verifyCargoCapacity(cargoCapacity)){
             this.cargoCapacity=cargoCapacity;
         }else{

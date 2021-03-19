@@ -10,10 +10,10 @@ import java.util.List;
 
 public class PlaneFleet implements Fleet<Plane>{
 
-    private static Logger LOG = LoggerFactory.getLogger(PlaneFleet.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PlaneFleet.class);
 
-    private List<Plane> fleet;
-    private FleetOperations operations;
+    private final List<Plane> fleet;
+    private final FleetOperations operations;
 
     public PlaneFleet() {
         fleet = new ArrayList<>();
@@ -46,12 +46,12 @@ public class PlaneFleet implements Fleet<Plane>{
 
     public double getCargoCapacity(){
         LOG.info("Calculating Total Cargo Capacity");
-        return operations.cargoCapacity();
+        return operations.getCargoCapacity();
     }
 
     public int getPassengerCapacity(){
         LOG.info("Calculating Total Passenger Capacity");
-        return operations.passengerCapacity();
+        return operations.getPassengerCapacity();
     }
 
     public void sortByFlyRange(){
@@ -59,7 +59,11 @@ public class PlaneFleet implements Fleet<Plane>{
         LOG.info("Fleet sorting by Fly Range");
     }
 
-    public String fuelConsumerFromTo(double  from, double to){
+    public List<Plane> fuelConsumerFromTo(double from, double to) {
+        return operations.fuelConsumerFromTo(from,to);
+    }
+
+    public String fuelConsumerFromToString(double  from, double to){
         List<Plane> searching = operations.fuelConsumerFromTo(from,to);
         if (searching == null){
             LOG.info("There are no Plane consider to conditions");
@@ -70,19 +74,36 @@ public class PlaneFleet implements Fleet<Plane>{
    }
 
     public String getDescription(List<Plane> fleet){
-        StringBuilder description = new StringBuilder();
+        String description = "";
         if(fleet!=null) {
-            description.append("Fleet size is "+fleet.size()+" planes. It consist from: \n");
+            description += "Fleet size is "+fleet.size()+" planes. It consist from: \n";
+            StringBuilder str = new StringBuilder(description);
             for (Plane plane : fleet) {
-                description.append(Planes.getPlaneDescription(plane)+"\n");
+                str.append(Planes.getPlaneDescription(plane)).append("\n");
             }
+            description = str.toString();
         }else{
             return "Fleet isn't created yet";
         }
-        return description.toString();
+        return description;
     }
 
-    @Override
+    public int size(){
+        return fleet.size();
+    }
+
+    public void save(Fleet<Plane> fleet, String fileName){
+        operations.save(fleet,fileName);
+    }
+
+    public Fleet<Plane> load(String fileName){
+        return operations.load(fileName);
+    }
+
+    public List<Plane> getFleet(){
+        return fleet;
+    }
+
     public String toString() {
         return getDescription(fleet);
     }

@@ -4,12 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import plane.Plane;
 
+import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
 
-class FleetOperations {
+class FleetOperations implements FleetOperation,Serializable {
+    private final static String path="src/main/resources/fleet/";
     private final static Logger LOG = LoggerFactory.getLogger(FleetOperations.class);
-    private List<Plane> fleet;
+    private final List<Plane> fleet;
 
     public FleetOperations(List<Plane> fleet) {
         if(fleet!=null) {
@@ -20,7 +22,7 @@ class FleetOperations {
         }
     }
 
-    public int passengerCapacity(){
+    public int getPassengerCapacity(){
         int capacity=0;
         for (Plane plane : fleet) {
             capacity=capacity+plane.getPassengerCapacity();
@@ -28,8 +30,8 @@ class FleetOperations {
         return capacity;
     }
 
-    public double cargoCapacity(){
-        BigDecimal capacity = new BigDecimal(0.0);
+    public double getCargoCapacity(){
+        BigDecimal capacity = BigDecimal.ZERO;
         for (Plane plane : fleet) {
             capacity = capacity.add(BigDecimal.valueOf(plane.getCargoCapacity()));
         }
@@ -37,12 +39,7 @@ class FleetOperations {
     }
 
     public void sortByFlyRange(){
-        Collections.sort(fleet, new Comparator<Plane>() {
-            @Override
-            public int compare(Plane p1, Plane p2) {
-                return (int)(p1.getFlyRange() - p2.getFlyRange());
-            }
-        });
+        Collections.sort(fleet, (Plane p1,Plane p2)-> ((Double)p1.getFlyRange()).compareTo(p2.getFlyRange()));
     }
 
     public List<Plane> fuelConsumerFromTo(double from, double to){
@@ -63,6 +60,43 @@ class FleetOperations {
         }
         if(searchingPlanes.size()==0) return null;
         return searchingPlanes;
+    }
+
+    public void save(Fleet<Plane> fleet, String fileName) {
+        Objects.requireNonNull(fleet,"Fleet is null First create new Fleet");
+        try(ObjectOutputStream objOutStr = new ObjectOutputStream(new FileOutputStream(path+fileName)))
+        {
+            objOutStr.writeObject(fleet);
+        }catch(IOException e){
+            LOG.error("Saving file Fleet. Couldn't write file from "+path+fileName, e);
+        }
+    }
+
+    public Fleet<Plane> load(String fileName) {
+        
+        File f = new File(path+fileName);
+        
+        if(!f.exists() || f.isDirectory()) {
+            LOG.error("Loading file Fleet. Couldn't find file "+path+fileName);
+            throw new IllegalArgumentException(fileName);
+        }
+        
+        Fleet<Plane> fleet = null;
+        
+        try(ObjectInputStream objInStr = new ObjectInputStream(new FileInputStream(path+fileName)))
+        {
+            fleet = (Fleet<Plane>) objInStr.readObject();
+        }catch(IOException e){
+            LOG.error("Loading fleet Couldn't read file "+path+fileName, e);
+        }catch (ClassNotFoundException e){
+            LOG.error("Couldn't find class during loading Fleet"+Fleet.class, e);
+        }
+
+        return fleet;
+    }
+
+    static String getPath(){
+        return path;
     }
 
 }
