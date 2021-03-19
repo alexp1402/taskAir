@@ -26,13 +26,20 @@ public class PlanesTest {
 
     @Test
     void getPlaneDescriptionGood(){
-        System.out.println(Planes.getPlaneDescription(plane));
-        Assertions.assertNotNull(Planes.getPlaneDescription(plane));
+        String waitingFor = plane.getClass().getSimpleName()+" plane with bort number: Passenger plane" +
+                "\n\t passenger capacity = 1 peoples " +
+                "\n\t cargo capacity = 1.0 tones" +
+                "\n\t fuel consumer = 1.0 liters per kilometers" +
+                "\n\t max fly range = 1.0 kilometers\n";
+        Assertions.assertEquals(waitingFor,Planes.getPlaneDescription(plane));
+        verify(plane,times(5));
     }
 
     @Test
     void getSmallPlaneDescriptionGood(){
-        System.out.println(Planes.getPlaneDescription(plane));
-        Assertions.assertNotNull(Planes.getPlaneDescription(plane));
+        System.out.println(Planes.getSmallPlaneDescription(plane));
+        String waitingFor = " bn: Passenger plane pas=1 cargo=1.0 fuelC=1.0 flyR=1.0";
+        Assertions.assertEquals(waitingFor,Planes.getSmallPlaneDescription(plane));
+        verify(plane,times(5));
     }
 }
