@@ -7,7 +7,7 @@ import plane.Plane;
 import java.io.*;
 import java.util.Objects;
 
-public class FleetDAOImpl implements FleetDAO<Plane>{
+public class FleetDAOImpl implements FleetDAO<Plane>, Serializable{
     private static final Logger LOG = LoggerFactory.getLogger(FleetDAOImpl.class);
     private static final String path = "src/main/resources/fleet/";
 
@@ -16,7 +16,7 @@ public class FleetDAOImpl implements FleetDAO<Plane>{
         try (ObjectOutputStream objOutStr = new ObjectOutputStream(new FileOutputStream(this.getPath() + fileName))) {
             objOutStr.writeObject(fleet);
         } catch (IOException e) {
-            LOG.error("Saving file Fleet. Couldn't write file from " + this.getPath() + fileName, e);
+            LOG.error("Saving file Fleet. Couldn't write file to " + this.getPath() + fileName, e);
         }
     }
 
