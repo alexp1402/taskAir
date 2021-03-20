@@ -4,7 +4,7 @@ import plane.Plane;
 
 import java.util.List;
 
-public interface FleetOperation {
+public interface FleetOperation<T> {
 
     int getPassengerCapacity();
 
@@ -12,9 +12,6 @@ public interface FleetOperation {
 
     void sortByFlyRange();
 
-    List<Plane> fuelConsumerFromTo(double from, double to);
+    List<T> fuelConsumerFromTo(double from, double to);
 
-    void save(Fleet<Plane> fleet, String fileName);
-
-    Fleet<Plane> load(String fileName);
 }

@@ -30,7 +30,7 @@ public class FleetTest {
 
     @AfterAll
     static void cleareFile(){
-            File file =  new File(FleetOperations.getPath() + fileName);
+            File file =  new File(new FleetDAOImpl().getPath() + fileName);
             file.deleteOnExit();
     }
 }

@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import plane.Plane;
 
-public class PlaneAirCompany implements Company{
+public class PlaneAirCompany implements Company {
     private static final Logger LOG = LoggerFactory.getLogger(PlaneAirCompany.class);
 
     private Fleet<Plane> fleet;
@@ -31,31 +31,31 @@ public class PlaneAirCompany implements Company{
         this.companyName = companyName;
     }
 
-    public double getTotalFleetCargoCapacity(){
+    public double getTotalFleetCargoCapacity() {
         return fleet.getCargoCapacity();
     }
 
-    public int getTotalFleetPassengerCapacity(){
+    public int getTotalFleetPassengerCapacity() {
         return fleet.getPassengerCapacity();
     }
 
-    public String searchingPlanesByFuelConsumeration(double fuelConsumeration){
-        return ((PlaneFleet)fleet).fuelConsumerFromToString(fuelConsumeration,fuelConsumeration);
+    public String searchingPlanesByFuelConsumeration(double fuelConsumeration) {
+        return ((PlaneFleet) fleet).fuelConsumerFromToString(fuelConsumeration, fuelConsumeration);
     }
 
-    public String searchingPlanesByFuelConsumeration(double fuelConsumerationFrom, double fuelConsumerationTo){
-        return ((PlaneFleet)fleet).fuelConsumerFromToString(fuelConsumerationFrom,fuelConsumerationTo);
+    public String searchingPlanesByFuelConsumeration(double fuelConsumerationFrom, double fuelConsumerationTo) {
+        return ((PlaneFleet) fleet).fuelConsumerFromToString(fuelConsumerationFrom, fuelConsumerationTo);
     }
 
-    public void sortingFleetByFlyRange(){
+    public void sortingFleetByFlyRange() {
         fleet.sortByFlyRange();
     }
 
-    public String descriptCompany(){
-        return "Welcome this is "+getCompanyName()+" Air Company \n"+fleet.toString();
+    public String descriptCompany() {
+        return "Welcome this is " + getCompanyName() + " Air Company \n" + fleet.toString();
     }
 
-    public String descriptFleet(){
+    public String descriptFleet() {
         return fleet.toString();
     }
 

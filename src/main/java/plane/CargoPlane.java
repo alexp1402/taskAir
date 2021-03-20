@@ -6,37 +6,37 @@ import org.slf4j.LoggerFactory;
 public class CargoPlane implements Plane {
     private static final Logger LOG = LoggerFactory.getLogger(CargoPlane.class);
     private final String planeNumber;
-    private final int passengerCapacity=0;
+    private final int passengerCapacity = 0;
     private final double cargoCapacity;
     private final double fuelConsumer;
     private final double flyRange;
 
     public CargoPlane(String planeNumber, double cargoCapacity, double fuelConsumer, double flyRange) {
 
-        if(PlaneVerification.verifyCargoCapacity(cargoCapacity)){
-            this.cargoCapacity=cargoCapacity;
-        }else{
-            LOG.error("Cargo capacity must be positive but equal " +cargoCapacity);
-            throw new IllegalArgumentException("Cargo capacity must be positive but is" +cargoCapacity);
+        if (PlaneVerification.verifyCargoCapacity(cargoCapacity)) {
+            this.cargoCapacity = cargoCapacity;
+        } else {
+            LOG.error("Cargo capacity must be positive but equal " + cargoCapacity);
+            throw new IllegalArgumentException("Cargo capacity must be positive but is" + cargoCapacity);
         }
 
-        if(PlaneVerification.verifyFuelConsumer(fuelConsumer)){
-            this.fuelConsumer=fuelConsumer;
-        }else{
-            LOG.error("Fuel consumer must be positive but equal " +fuelConsumer);
-            throw new IllegalArgumentException("Fuel consumer must be positive but equal" +fuelConsumer);
+        if (PlaneVerification.verifyFuelConsumer(fuelConsumer)) {
+            this.fuelConsumer = fuelConsumer;
+        } else {
+            LOG.error("Fuel consumer must be positive but equal " + fuelConsumer);
+            throw new IllegalArgumentException("Fuel consumer must be positive but equal" + fuelConsumer);
         }
 
-        if(PlaneVerification.verifyFlyRange(flyRange)){
-            this.flyRange=flyRange;
-        }else{
-            LOG.error("Fly range must be positive but equal " +flyRange);
-            throw new IllegalArgumentException("Fly range must be positive but equal " +flyRange);
+        if (PlaneVerification.verifyFlyRange(flyRange)) {
+            this.flyRange = flyRange;
+        } else {
+            LOG.error("Fly range must be positive but equal " + flyRange);
+            throw new IllegalArgumentException("Fly range must be positive but equal " + flyRange);
         }
 
-        this.planeNumber =planeNumber;
+        this.planeNumber = planeNumber;
 
-        LOG.info("CargoPlane created "+Planes.getSmallPlaneDescription(this));
+        LOG.info("CargoPlane created " + Planes.getSmallPlaneDescription(this));
     }
 
     @Override

@@ -8,99 +8,101 @@ import plane.Planes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlaneFleet implements Fleet<Plane>{
+public class PlaneFleet implements Fleet<Plane> {
 
     private static final Logger LOG = LoggerFactory.getLogger(PlaneFleet.class);
 
     private final List<Plane> fleet;
     private final FleetOperations operations;
+    private final FleetDAOImpl fleetDAO;
 
     public PlaneFleet() {
         fleet = new ArrayList<>();
         operations = new FleetOperations(fleet);
+        fleetDAO = new FleetDAOImpl();
         LOG.info("PlaneFleet created");
 
     }
 
-    public void add(Plane plane){
+    public void add(Plane plane) {
         fleet.add(plane);
     }
 
-    public void remove(int index) throws IndexOutOfBoundsException{
-        if ((index>=0 && (index<= fleet.size()-1))) {
+    public void remove(int index) throws IndexOutOfBoundsException {
+        if ((index >= 0 && (index <= fleet.size() - 1))) {
             fleet.remove(index);
-        }else{
-            LOG.error("Wrong index. Try to dell non-existing element from fleet fleetSize="+fleet.size()+" indexIs="+index);
+        } else {
+            LOG.error("Wrong index. Try to dell non-existing element from fleet fleetSize=" + fleet.size() + " indexIs=" + index);
             throw new IndexOutOfBoundsException("Wrong index. Try to dell non-existing element or fleet");
         }
     }
 
-    public void remove(Plane plane) throws IllegalArgumentException{
-        if(fleet.contains(plane)){
+    public void remove(Plane plane) throws IllegalArgumentException {
+        if (fleet.contains(plane)) {
             fleet.remove(plane);
-        }else{
+        } else {
             LOG.error("Try to dell absent Plane in Fleet");
             throw new IllegalArgumentException();
         }
     }
 
-    public double getCargoCapacity(){
+    public double getCargoCapacity() {
         LOG.info("Calculating Total Cargo Capacity");
         return operations.getCargoCapacity();
     }
 
-    public int getPassengerCapacity(){
+    public int getPassengerCapacity() {
         LOG.info("Calculating Total Passenger Capacity");
         return operations.getPassengerCapacity();
     }
 
-    public void sortByFlyRange(){
+    public void sortByFlyRange() {
         operations.sortByFlyRange();
         LOG.info("Fleet sorting by Fly Range");
     }
 
     public List<Plane> fuelConsumerFromTo(double from, double to) {
-        return operations.fuelConsumerFromTo(from,to);
+        return operations.fuelConsumerFromTo(from, to);
     }
 
-    public String fuelConsumerFromToString(double  from, double to){
-        List<Plane> searching = operations.fuelConsumerFromTo(from,to);
-        if (searching == null){
+    public String fuelConsumerFromToString(double from, double to) {
+        List<Plane> searching = operations.fuelConsumerFromTo(from, to);
+        if (searching == null) {
             LOG.info("There are no Plane consider to conditions");
             return "There are no Plane consider to conditions";
         }
         LOG.info("Searching ended. Some plane consider to conditions");
         return getDescription(searching);
-   }
+    }
 
-    public String getDescription(List<Plane> fleet){
+    public String getDescription(List<Plane> fleet) {
         String description = "";
-        if(fleet!=null) {
-            description += "Fleet size is "+fleet.size()+" planes. It consist from: \n";
+        if (fleet != null) {
+            description += "Fleet size is " + fleet.size() + " planes. It consist from: \n";
             StringBuilder str = new StringBuilder(description);
             for (Plane plane : fleet) {
                 str.append(Planes.getPlaneDescription(plane)).append("\n");
             }
             description = str.toString();
-        }else{
+        } else {
             return "Fleet isn't created yet";
         }
         return description;
     }
 
-    public int size(){
+    public int size() {
         return fleet.size();
     }
 
-    public void save(Fleet<Plane> fleet, String fileName){
-        operations.save(fleet,fileName);
+    public void save(Fleet<Plane> fleet, String fileName) {
+        fleetDAO.save(fleet, fileName);
     }
 
-    public Fleet<Plane> load(String fileName){
-        return operations.load(fileName);
+    public Fleet<Plane> load(String fileName) {
+        return fleetDAO.load(fileName);
     }
 
-    public List<Plane> getFleet(){
+    public List<Plane> getFleet() {
         return fleet;
     }
 

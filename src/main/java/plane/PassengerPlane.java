@@ -14,37 +14,37 @@ public class PassengerPlane implements Plane {
 
     public PassengerPlane(String planeNumber, int passengerCapacity, double cargoCapacity, double fuelConsumer, double flyRange) {
 
-        if(PlaneVerification.verifyPassengerCapacity(passengerCapacity)){
-            this.passengerCapacity=passengerCapacity;
-        }else{
-            LOG.error("Passenger capacity must be positive but equal " +passengerCapacity);
-            throw new IllegalArgumentException("Cargo capacity must be positive but is" +passengerCapacity);
+        if (PlaneVerification.verifyPassengerCapacity(passengerCapacity)) {
+            this.passengerCapacity = passengerCapacity;
+        } else {
+            LOG.error("Passenger capacity must be positive but equal " + passengerCapacity);
+            throw new IllegalArgumentException("Cargo capacity must be positive but is" + passengerCapacity);
         }
 
-        if(PlaneVerification.verifyCargoCapacity(cargoCapacity)){
-            this.cargoCapacity=cargoCapacity;
-        }else{
-            LOG.error("Cargo capacity must be positive but equal " +cargoCapacity);
-            throw new IllegalArgumentException("Cargo capacity must be positive but is" +cargoCapacity);
+        if (PlaneVerification.verifyCargoCapacity(cargoCapacity)) {
+            this.cargoCapacity = cargoCapacity;
+        } else {
+            LOG.error("Cargo capacity must be positive but equal " + cargoCapacity);
+            throw new IllegalArgumentException("Cargo capacity must be positive but is" + cargoCapacity);
         }
 
-        if(PlaneVerification.verifyFuelConsumer(fuelConsumer)){
-            this.fuelConsumer=fuelConsumer;
-        }else{
-            LOG.error("Fuel consumer must be positive but equal " +fuelConsumer);
-            throw new IllegalArgumentException("Fuel consumer must be positive but equal" +fuelConsumer);
+        if (PlaneVerification.verifyFuelConsumer(fuelConsumer)) {
+            this.fuelConsumer = fuelConsumer;
+        } else {
+            LOG.error("Fuel consumer must be positive but equal " + fuelConsumer);
+            throw new IllegalArgumentException("Fuel consumer must be positive but equal" + fuelConsumer);
         }
 
-        if(PlaneVerification.verifyFlyRange(flyRange)){
-            this.flyRange=flyRange;
-        }else{
-            LOG.error("Fly range must be positive but equal " +flyRange);
-            throw new IllegalArgumentException("Fly range must be positive but equal " +flyRange);
+        if (PlaneVerification.verifyFlyRange(flyRange)) {
+            this.flyRange = flyRange;
+        } else {
+            LOG.error("Fly range must be positive but equal " + flyRange);
+            throw new IllegalArgumentException("Fly range must be positive but equal " + flyRange);
         }
 
-        this.planeNumber =planeNumber;
+        this.planeNumber = planeNumber;
 
-        LOG.info("PassengerPlane created "+Planes.getSmallPlaneDescription(this));
+        LOG.info("PassengerPlane created " + Planes.getSmallPlaneDescription(this));
     }
 
     @Override
