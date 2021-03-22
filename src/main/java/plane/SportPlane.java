@@ -13,21 +13,16 @@ public class SportPlane implements Plane {
 
     public SportPlane(String planeNumber, double fuelConsumer, double flyRange) {
 
-        if (PlaneVerification.verifyFuelConsumer(fuelConsumer)) {
-            this.fuelConsumer = fuelConsumer;
-        } else {
-            LOG.error("Fuel consumer must be positive but equal " + fuelConsumer);
-            throw new IllegalArgumentException("Fuel consumer must be positive but equal" + fuelConsumer);
-        }
+        String msg = PlaneVerification.verifyPlaneArguments(planeNumber, passengerCapacity, cargoCapacity, fuelConsumer, flyRange);
 
-        if (PlaneVerification.verifyFlyRange(flyRange)) {
+        if (msg.length() == 0) {
+            this.planeNumber = planeNumber;
+            this.fuelConsumer = fuelConsumer;
             this.flyRange = flyRange;
         } else {
-            LOG.error("Fly range must be positive but equal " + flyRange);
-            throw new IllegalArgumentException("Fly range must be positive but equal " + flyRange);
+            LOG.error("Illegal plane arguments + " + msg);
+            throw new IllegalArgumentException("Illegal plane arguments + " + msg);
         }
-
-        this.planeNumber = planeNumber;
 
         LOG.info("CargoPlane created " + Planes.getSmallPlaneDescription(this));
     }
