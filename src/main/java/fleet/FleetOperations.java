@@ -22,6 +22,7 @@ class FleetOperations implements FleetOperation<Plane>, Serializable {
         }
     }
 
+    @Override
     public int getPassengerCapacity() {
         int capacity = 0;
         for (Plane plane : fleet) {
@@ -30,6 +31,7 @@ class FleetOperations implements FleetOperation<Plane>, Serializable {
         return capacity;
     }
 
+    @Override
     public double getCargoCapacity() {
         BigDecimal capacity = BigDecimal.ZERO;
         for (Plane plane : fleet) {
@@ -38,10 +40,12 @@ class FleetOperations implements FleetOperation<Plane>, Serializable {
         return capacity.doubleValue();
     }
 
+    @Override
     public void sortByFlyRange() {
         Collections.sort(fleet, (Plane p1, Plane p2) -> (Double.compare(p1.getFlyRange(), p2.getFlyRange())));
     }
 
+    @Override
     public List<Plane> fuelConsumerFromTo(double from, double to) {
         List<Plane> searchingPlanes = new ArrayList<>();
         if (from <= 0 || to <= 0) {
@@ -61,7 +65,4 @@ class FleetOperations implements FleetOperation<Plane>, Serializable {
         if (searchingPlanes.size() == 0) return null;
         return searchingPlanes;
     }
-
-
-
 }

@@ -11,6 +11,7 @@ public class FleetDAOImpl implements FleetDAO<Plane>, Serializable{
     private static final Logger LOG = LoggerFactory.getLogger(FleetDAOImpl.class);
     private static final String path = "src/main/resources/fleet/";
 
+    @Override
     public void save(Fleet<Plane> fleet, String fileName) {
         Objects.requireNonNull(fleet, "Fleet is null First create new Fleet");
         try (ObjectOutputStream objOutStr = new ObjectOutputStream(new FileOutputStream(this.getPath() + fileName))) {
@@ -20,6 +21,8 @@ public class FleetDAOImpl implements FleetDAO<Plane>, Serializable{
         }
     }
 
+    @Override
+    @SuppressWarnings("unchecked")
     public Fleet<Plane> load(String fileName) {
 
         File f = new File(this.getPath() + fileName);
