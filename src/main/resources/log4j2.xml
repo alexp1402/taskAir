@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN" monitorInterval="30">
+<Configuration status="WARN">
     <Properties>
         <Property name="LOG_PATTERN">[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</Property>
         <Property name="APP_LOG_ROOT">src/main/log</Property>
@@ -7,8 +7,8 @@
 
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout
-                    pattern="${LOG_PATTERN}"/>
+            <LevelRangeFilter minLevel="ERROR" maxLevel="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
         </Console>
         <RollingFile name="AppLog" fileName="${APP_LOG_ROOT}/app.log"
                      filePattern="${APP_LOG_ROOT}/app_%d{yyyy-MM-dd}_%i.log">
@@ -18,14 +18,14 @@
             </Policies>
             <DefaultRolloverStrategy max="10"/>
         </RollingFile>
-
     </Appenders>
 
     <Loggers>
-        <Logger name="com" additivity="false" level="debug">
+        <Logger name="com.aircomp" level="DEBUG">
             <AppenderRef ref="AppLog"/>
         </Logger>
-        <Root level="debug" additivity="false">
+
+        <Root level="ERROR">
             <AppenderRef ref="console"/>
         </Root>
     </Loggers>
