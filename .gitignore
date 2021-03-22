@@ -4,3 +4,4 @@ target
 *.iml
 taskAir
 .src.main.log
+CodeStyleCheckTool.xml
