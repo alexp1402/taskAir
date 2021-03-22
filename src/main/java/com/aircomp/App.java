@@ -1,10 +1,12 @@
-import aircompany.PlaneAirCompany;
-import fleet.Fleet;
-import fleet.PlaneFleet;
-import plane.CargoPlane;
-import plane.Plane;
-import plane.PassengerPlane;
-import plane.SportPlane;
+package com.aircomp;
+
+import com.aircomp.aircompany.PlaneAirCompany;
+import com.aircomp.fleet.PlaneFleet;
+import com.aircomp.plane.SportPlane;
+import com.aircomp.fleet.Fleet;
+import com.aircomp.plane.CargoPlane;
+import com.aircomp.plane.Plane;
+import com.aircomp.plane.PassengerPlane;
 
 
 public class App {
@@ -35,7 +37,7 @@ public class App {
         System.out.println("Task 1. Fleet total cargo capacity = "+company.getTotalFleetCargoCapacity());
         System.out.println("Task 2. Fleet total passenger capacity = "+company.getTotalFleetPassengerCapacity());
         System.out.println("///////////////////////////////////////////////");
-        System.out.println("Task 4. Searching Plane with fuel consumerationes (9.81d) :\n"+company.searchingPlanesByFuelConsumeration(9.81d));
+        System.out.println("Task 4. Searching Plane with fuel consumerationes (10.7d) :\n"+company.searchingPlanesByFuelConsumeration(10.7d));
         System.out.println("///////////////////////////////////////////////");
         System.out.println("Task 4. Searching Plane with fuel consumerationes (9.00d - 22.00d) :\n"+company.searchingPlanesByFuelConsumeration(9 ,22)+"\n");
         System.out.println("///////////////////////////////////////////////");

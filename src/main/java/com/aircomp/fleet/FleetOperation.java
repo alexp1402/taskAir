@@ -1,6 +1,4 @@
-package fleet;
-
-import plane.Plane;
+package com.aircomp.fleet;
 
 import java.util.List;
 

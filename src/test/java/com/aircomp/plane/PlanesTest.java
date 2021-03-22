@@ -1,5 +1,8 @@
-package plane;
+package com.aircomp.plane;
 
+import com.aircomp.plane.PassengerPlane;
+import com.aircomp.plane.Plane;
+import com.aircomp.plane.Planes;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,7 +24,7 @@ public class PlanesTest {
 
     @Test
     void getPlaneDescriptionNull(){
-       Assertions.assertThrows(NullPointerException.class, ()->Planes.getPlaneDescription(null));
+       Assertions.assertThrows(NullPointerException.class, ()-> Planes.getPlaneDescription(null));
     }
 
     @Test

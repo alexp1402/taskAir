@@ -1,10 +1,10 @@
-package aircompany;
+package com.aircomp.aircompany;
 
-import fleet.Fleet;
-import fleet.PlaneFleet;
+import com.aircomp.fleet.Fleet;
+import com.aircomp.fleet.PlaneFleet;
+import com.aircomp.plane.Plane;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import plane.Plane;
 
 public class AircompanyTest {
 

@@ -1,7 +1,7 @@
-package aircompany;
+package com.aircomp.aircompany;
 
-import fleet.Fleet;
-import plane.Plane;
+import com.aircomp.fleet.Fleet;
+import com.aircomp.plane.Plane;
 
 public interface Company {
     void setFleet(Fleet<Plane> fleet);

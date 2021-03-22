@@ -1,5 +1,7 @@
-package plane;
+package com.aircomp.plane;
 
+import com.aircomp.plane.PassengerPlane;
+import com.aircomp.plane.Plane;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

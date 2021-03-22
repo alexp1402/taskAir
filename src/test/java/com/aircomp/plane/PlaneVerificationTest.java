@@ -1,5 +1,6 @@
-package plane;
+package com.aircomp.plane;
 
+import com.aircomp.plane.PlaneVerification;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

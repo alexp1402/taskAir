@@ -1,4 +1,4 @@
-package plane;
+package com.aircomp.plane;
 
 import java.util.Objects;
 

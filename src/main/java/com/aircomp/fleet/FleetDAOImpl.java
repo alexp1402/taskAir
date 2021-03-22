@@ -1,8 +1,8 @@
-package fleet;
+package com.aircomp.fleet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import plane.Plane;
+import com.aircomp.plane.Plane;
 
 import java.io.*;
 import java.util.Objects;

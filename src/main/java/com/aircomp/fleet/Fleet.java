@@ -1,6 +1,6 @@
-package fleet;
+package com.aircomp.fleet;
 
-import plane.Plane;
+import com.aircomp.plane.Plane;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,4 +1,4 @@
-package fleet;
+package com.aircomp.fleet;
 
 public interface FleetDAO<T> {
     void save(Fleet<T> fleet, String fileName);

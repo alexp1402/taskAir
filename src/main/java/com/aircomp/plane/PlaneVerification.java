@@ -1,4 +1,4 @@
-package plane;
+package com.aircomp.plane;
 
 public class PlaneVerification {
     public static boolean verifyFuelConsumer(double fuelConsumer) {

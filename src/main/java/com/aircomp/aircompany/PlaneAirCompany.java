@@ -1,11 +1,11 @@
-package aircompany;
+package com.aircomp.aircompany;
 
 
-import fleet.Fleet;
-import fleet.PlaneFleet;
+import com.aircomp.fleet.Fleet;
+import com.aircomp.fleet.PlaneFleet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import plane.Plane;
+import com.aircomp.plane.Plane;
 
 public class PlaneAirCompany implements Company {
     private static final Logger LOG = LoggerFactory.getLogger(PlaneAirCompany.class);

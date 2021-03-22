@@ -1,9 +1,12 @@
-package fleet;
+package com.aircomp.fleet;
 
+import com.aircomp.fleet.Fleet;
+import com.aircomp.fleet.FleetDAOImpl;
+import com.aircomp.fleet.PlaneFleet;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import plane.Plane;
+import com.aircomp.plane.Plane;
 
 import java.io.File;
 

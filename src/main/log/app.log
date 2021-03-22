@@ -1,0 +1,39 @@
+[INFO ] 2021-03-22 10:50:59.942 [main] CargoPlane - CargoPlane created  bn: CAR3355 pas=0 cargo=200.2 fuelC=10.5 flyR=1200.5
+[INFO ] 2021-03-22 10:50:59.957 [main] CargoPlane - CargoPlane created  bn: CAR2154 pas=0 cargo=300.3 fuelC=11.2 flyR=1100.1
+[INFO ] 2021-03-22 10:50:59.957 [main] PassengerPlane - PassengerPlane created  bn: PAS1402 pas=100 cargo=10.1 fuelC=4.4 flyR=2200.0
+[INFO ] 2021-03-22 10:50:59.957 [main] PassengerPlane - PassengerPlane created  bn: PAS5418 pas=300 cargo=30.3 fuelC=10.7 flyR=1350.5
+[INFO ] 2021-03-22 10:50:59.957 [main] PassengerPlane - PassengerPlane created  bn: PAS1234 pas=200 cargo=20.2 fuelC=6.5 flyR=1600.25
+[INFO ] 2021-03-22 10:50:59.957 [main] SportPlane - CargoPlane created  bn: SPORT001 pas=0 cargo=0.0 fuelC=2.55 flyR=345.52
+[INFO ] 2021-03-22 10:50:59.957 [main] PlaneFleet - PlaneFleet created
+[INFO ] 2021-03-22 10:51:00.036 [main] PlaneAirCompany - PlaneAirCompany created
+[INFO ] 2021-03-22 10:51:00.036 [main] PlaneFleet - Calculating Total Cargo Capacity
+[INFO ] 2021-03-22 10:51:00.037 [main] PlaneFleet - Calculating Total Passenger Capacity
+[INFO ] 2021-03-22 10:51:00.038 [main] PlaneFleet - There are no Plane consider to conditions
+[INFO ] 2021-03-22 10:51:00.039 [main] PlaneFleet - Searching ended. Some plane consider to conditions
+[INFO ] 2021-03-22 10:51:00.055 [main] PlaneFleet - Fleet sorting by Fly Range
+[INFO ] 2021-03-22 10:51:17.466 [main] CargoPlane - CargoPlane created  bn: CAR3355 pas=0 cargo=200.2 fuelC=10.5 flyR=1200.5
+[INFO ] 2021-03-22 10:51:17.466 [main] CargoPlane - CargoPlane created  bn: CAR2154 pas=0 cargo=300.3 fuelC=11.2 flyR=1100.1
+[INFO ] 2021-03-22 10:51:17.466 [main] PassengerPlane - PassengerPlane created  bn: PAS1402 pas=100 cargo=10.1 fuelC=4.4 flyR=2200.0
+[INFO ] 2021-03-22 10:51:17.466 [main] PassengerPlane - PassengerPlane created  bn: PAS5418 pas=300 cargo=30.3 fuelC=10.7 flyR=1350.5
+[INFO ] 2021-03-22 10:51:17.466 [main] PassengerPlane - PassengerPlane created  bn: PAS1234 pas=200 cargo=20.2 fuelC=6.5 flyR=1600.25
+[INFO ] 2021-03-22 10:51:17.466 [main] SportPlane - CargoPlane created  bn: SPORT001 pas=0 cargo=0.0 fuelC=2.55 flyR=345.52
+[INFO ] 2021-03-22 10:51:17.482 [main] PlaneFleet - PlaneFleet created
+[INFO ] 2021-03-22 10:51:17.529 [main] PlaneAirCompany - PlaneAirCompany created
+[INFO ] 2021-03-22 10:51:17.529 [main] PlaneFleet - Calculating Total Cargo Capacity
+[INFO ] 2021-03-22 10:51:17.529 [main] PlaneFleet - Calculating Total Passenger Capacity
+[INFO ] 2021-03-22 10:51:17.529 [main] PlaneFleet - There are no Plane consider to conditions
+[INFO ] 2021-03-22 10:51:17.529 [main] PlaneFleet - Searching ended. Some plane consider to conditions
+[INFO ] 2021-03-22 10:51:17.544 [main] PlaneFleet - Fleet sorting by Fly Range
+[INFO ] 2021-03-22 10:53:04.303 [main] CargoPlane - CargoPlane created  bn: CAR3355 pas=0 cargo=200.2 fuelC=10.5 flyR=1200.5
+[INFO ] 2021-03-22 10:53:04.303 [main] CargoPlane - CargoPlane created  bn: CAR2154 pas=0 cargo=300.3 fuelC=11.2 flyR=1100.1
+[INFO ] 2021-03-22 10:53:04.303 [main] PassengerPlane - PassengerPlane created  bn: PAS1402 pas=100 cargo=10.1 fuelC=4.4 flyR=2200.0
+[INFO ] 2021-03-22 10:53:04.303 [main] PassengerPlane - PassengerPlane created  bn: PAS5418 pas=300 cargo=30.3 fuelC=10.7 flyR=1350.5
+[INFO ] 2021-03-22 10:53:04.303 [main] PassengerPlane - PassengerPlane created  bn: PAS1234 pas=200 cargo=20.2 fuelC=6.5 flyR=1600.25
+[INFO ] 2021-03-22 10:53:04.303 [main] SportPlane - CargoPlane created  bn: SPORT001 pas=0 cargo=0.0 fuelC=2.55 flyR=345.52
+[INFO ] 2021-03-22 10:53:04.319 [main] PlaneFleet - PlaneFleet created
+[INFO ] 2021-03-22 10:53:04.350 [main] PlaneAirCompany - PlaneAirCompany created
+[INFO ] 2021-03-22 10:53:04.350 [main] PlaneFleet - Calculating Total Cargo Capacity
+[INFO ] 2021-03-22 10:53:04.350 [main] PlaneFleet - Calculating Total Passenger Capacity
+[INFO ] 2021-03-22 10:53:04.350 [main] PlaneFleet - Searching ended. Some plane consider to conditions
+[INFO ] 2021-03-22 10:53:04.383 [main] PlaneFleet - Searching ended. Some plane consider to conditions
+[INFO ] 2021-03-22 10:53:04.385 [main] PlaneFleet - Fleet sorting by Fly Range
